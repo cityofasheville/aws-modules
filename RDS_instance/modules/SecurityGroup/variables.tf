@@ -22,11 +22,11 @@ variable "sg_cidr_blocks" {
 }
 
 variable "ingress" {
-  default = {}
+
 }
 
 variable "egress" {
-  default = {}
+ 
 }
 
 variable "tags" {
