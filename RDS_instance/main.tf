@@ -8,8 +8,8 @@ locals {
 module "Subnet_Group" {
   source = "./modules/SubnetGroup"
 
-  name = var.subnet_group_name != "" ? var.subnet_group_name : "${var.identifier}-${local.family}-subnet-gr"
-  subnet_ids = var.subnets
+  subnet_group_name = var.subnet_group_name != "" ? var.subnet_group_name : "${var.identifier}-${local.family}-subnet-gr"
+  subnets = var.subnets
   tags = var.tags
 }
 
