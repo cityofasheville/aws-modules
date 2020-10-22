@@ -86,7 +86,7 @@ variable "final_snapshot_identifier" {
   default     = null
 }
 
-variable "iam_database_autnetication_enabled" {
+variable "iam_database_authentication_enabled" {
   default = null
 }
 
