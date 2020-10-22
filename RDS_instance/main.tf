@@ -70,8 +70,8 @@ resource "aws_db_instance" "mod" {
 module "SecurityGroup" {
   source = "./modules/SecurityGroup"
 
-  name = local.sg_on_rds_instance_name
-  description = local.sg_on_rds_instance_name
+  //name = local.sg_on_rds_instance_name
+  //description = local.sg_on_rds_instance_name
   vpc_id = var.vpc_id
 
   ingress = {
