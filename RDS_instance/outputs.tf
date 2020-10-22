@@ -30,8 +30,3 @@ output "port" {
 output "rds_id" {
   value = aws_db_instance.mod.id
 }
-
-output "sg_on_rds_instance_id" {
-  value = aws_security_group.sg_on_rds_instance.id
-}
-
