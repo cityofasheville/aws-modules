@@ -33,7 +33,7 @@ resource "aws_db_instance" "mod" {
   engine                             = var.engine
   engine_version                     = var.engine_version
   final_snapshot_identifier          = var.engine_version
-  iam_database_autnetication_enabled = var.iam_database_autnetication_enabled
+  iam_database_authentication_enabled = var.iam_database_authentication_enabled
   identifier                         = var.identifier
   //identifier_prefix           = var.identifier_prefix
   instance_class         = var.instance_class
