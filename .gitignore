@@ -1,0 +1,6 @@
+# ignore jetbrains ide files
+.DS_Store
+.idea
+.idea/*
+
+
