@@ -5,3 +5,6 @@ This is a repository of custom, reusable modules to create AWS resources. These 
 
 # How do you use this repository?
 
+Import this module into your Terraform or Terragrunt service by referencing the folder of the module you wish to use. 
+
+Be sure to specify a tag on production systems or updates to this repository may cause unexpected consequences.
