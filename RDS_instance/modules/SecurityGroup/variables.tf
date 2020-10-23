@@ -22,11 +22,13 @@ variable "port" {
 }
 
 variable "security_groups" {
+  type = list(string)
   description = "Security groups which should be allowed ingress on the RDS instance."
   default     = []
 }
 
 variable "cidr_blocks" {
+  type = list(string)
   description = "cidr_blocks to give RDS port access to."
   default     = []
 }
