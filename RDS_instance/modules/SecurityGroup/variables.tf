@@ -11,22 +11,14 @@ variable "port" {
   default = null
 }
 
-variable "security_groups_for_ingress" {
+variable "security_groups" {
   description = "Security groups which should be allowed ingress on the RDS instance."
   default     = []
 }
 
-variable "sg_cidr_blocks" {
+variable "cidr_blocks" {
   description = "cidr_blocks to give RDS port access to."
   default     = []
-}
-
-variable "ingress" {
-
-}
-
-variable "egress" {
- 
 }
 
 variable "tags" {
