@@ -210,6 +210,7 @@ variable "username" {
 }
 
 variable "vpc_security_group_ids" {
+  type = list(string)
   description = "List of VPC security groups to associate."
   default     = null
 }
@@ -244,6 +245,7 @@ variable "security_groups_for_ingress" {
 }
 
 variable "sg_cidr_blocks" {
+  type = list(string)
   description = "cidr_blocks to give RDS port access to."
   default     = []
 }
