@@ -8,8 +8,8 @@ locals {
 module "Subnet_Group" {
   source = "./modules/SubnetGroup"
 
-  subnet_group_name = var.subnet_group_name != "" ? var.subnet_group_name : "${var.identifier}-${local.family}-subnet-gr"
-  subnets = var.subnets
+  name = var.subnet_group_name != "" ? var.subnet_group_name : "${var.identifier}-${local.family}-subnet-gr"
+  subnet_ids = var.subnets
   tags = var.tags
 }
 
@@ -70,24 +70,13 @@ resource "aws_db_instance" "mod" {
 module "SecurityGroup" {
   source = "./modules/SecurityGroup"
 
-  //name = local.sg_on_rds_instance_name
-  //description = local.sg_on_rds_instance_name
+  name = local.sg_on_rds_instance_name
+  description = local.sg_on_rds_instance_name
   vpc_id = var.vpc_id
+  cidr_blocks = var.sg_cidr_blocks
+  security_groups = var.vpc_security_group_ids
 
-  ingress = {
-    cidr_blocks     = var.sg_cidr_blocks
-    from_port       = var.port
-    protocol        = "tcp"
-    security_groups = var.security_groups_for_ingress
-    to_port         = var.port
-  }
 
-  egress = {
-    cidr_blocks = ["0.0.0.0/0"]
-    from_port   = 0
-    protocol    = "-1"
-    to_port     = 0
-  }
 
 }
 
