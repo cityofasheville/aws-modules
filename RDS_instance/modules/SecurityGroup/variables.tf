@@ -7,6 +7,16 @@ variable "security_group_name" {
   default = null
 }
 
+variable "name" {
+  type = string
+  default = ""
+}
+
+variable "description" {
+  type = string
+  default = ""
+}
+
 variable "port" {
   default = null
 }
