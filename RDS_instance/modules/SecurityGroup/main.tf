@@ -4,10 +4,9 @@ resource "aws_security_group" "sg_on_rds_instance" {
   vpc_id      = var.vpc_id
 
   ingress {
-    cidr_blocks     = flatten(var.cidr_blocks)
-    from_port       = var.port
+    cidr_blocks     = [var.cidr_blocks)    from_port       = var.port
     protocol        = "tcp"
-    security_groups = flatten(var.security_groups)
+    security_groups = [var.security_groups]
     to_port         = var.port
   }
 
