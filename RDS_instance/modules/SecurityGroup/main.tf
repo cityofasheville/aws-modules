@@ -3,7 +3,7 @@ resource "aws_security_group" "sg_on_rds_instance" {
   name        = var.name
   vpc_id      = var.vpc_id
 
-  ingress = {
+  ingress {
     cidr_blocks     = var.cidr_blocks
     from_port       = var.port
     protocol        = "tcp"
@@ -11,7 +11,7 @@ resource "aws_security_group" "sg_on_rds_instance" {
     to_port         = var.port
   }
 
-  egress = {
+  egress {
     cidr_blocks = ["0.0.0.0/0"]
     from_port   = 0
     protocol    = "-1"
