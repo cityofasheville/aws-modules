@@ -68,6 +68,7 @@ variable "domain_iam_role_name" {
 }
 
 variable "enabled_cloudwatch_logs_exports" {
+  type        = set(string)
   description = "Types depend on the engine. Available types for PostgreSQL are postgresql, upgrade."
   default     = null
 }
@@ -210,7 +211,7 @@ variable "username" {
 }
 
 variable "vpc_security_group_ids" {
-  type = list(string)
+  type        = list(string)
   description = "List of VPC security groups to associate."
   default     = null
 }
@@ -240,12 +241,13 @@ variable "vpc_id" {
 }
 
 variable "security_groups_for_ingress" {
+  type = list(string)
   description = "Security groups which should be allowed ingress on the RDS instance."
   default     = []
 }
 
 variable "sg_cidr_blocks" {
-  type = list(string)
+  type        = list(string)
   description = "cidr_blocks to give RDS port access to."
   default     = []
 }
@@ -263,6 +265,45 @@ variable "create_db_subnet_group" {
 }
 
 variable "subnets" {
+  type = list(string)
   description = "A list of subnets that the RDS instance can be added to. Either subnets or subnet_group_name must be specified."
   default     = []
+}
+
+variable "role_name" {
+  default = null
+}
+
+//secret module variables
+
+variable "create_secret" {
+  default = null
+}
+
+variable "secret_name" {
+  default = null
+}
+
+variable "secret_description" {
+  default = null
+}
+
+variable "secret_length" {
+  default = null
+}
+
+variable "inc_lower" {
+  default = null
+}
+
+variable "inc_number" {
+  default = null
+}
+
+variable "inc_special" {
+  default = null
+}
+
+variable "inc_upper" {
+  default = null
 }

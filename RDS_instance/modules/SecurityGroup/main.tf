@@ -20,7 +20,7 @@ resource "aws_security_group" "sg_on_rds_instance" {
 
   tags = merge(
   {
-    "Name" = var.security_group_name
+    "Name" = var.name
   },
   var.tags,
   )

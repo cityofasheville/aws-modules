@@ -1,12 +1,4 @@
 // security group variables
-variable "vpc_id" {
-  description = "VPC id to associate this RDS instance with."
-}
-
-variable "security_group_name" {
-  default = null
-}
-
 variable "name" {
   type = string
   default = ""
@@ -15,6 +7,16 @@ variable "name" {
 variable "description" {
   type = string
   default = ""
+}
+
+variable "vpc_id" {
+  description = "VPC id to associate this RDS instance with."
+}
+
+variable "cidr_blocks" {
+  type = list(string)
+  description = "cidr_blocks to give RDS port access to."
+  default     = []
 }
 
 variable "port" {
@@ -27,11 +29,7 @@ variable "security_groups" {
   default     = []
 }
 
-variable "cidr_blocks" {
-  type = list(string)
-  description = "cidr_blocks to give RDS port access to."
-  default     = []
-}
+
 
 variable "tags" {
   default = {}
