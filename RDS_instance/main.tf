@@ -35,7 +35,7 @@ module "Role" {
 
 module "Secrets" {
   source = "git@github.com:cityofasheville/aws-modules.git//Secrets_Manager"
-  //source = "/Users/nanciemccraw/aws-modules/Secrets_Manager"
+  //source = "../../../aws-modules/Secrets_Manager"
 
   create_secret = var.create_secret
   name = var.secret_name
@@ -85,8 +85,7 @@ resource "aws_db_instance" "rds_instance" {
   name                  = var.name
   option_group_name     = var.option_group_name
   parameter_group_name  = var.parameter_group_name
-  password              = module.Secrets.secret_string
-  port                  = var.port
+  password              = "${module.Secrets.secret_string[0]}"
   publicly_accessible   = var.publicly_accessible
   replicate_source_db   = var.replicate_source_db
   // security_group_names   = []

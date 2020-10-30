@@ -157,6 +157,7 @@ variable "parameter_group_name" {
 }
 
 variable "password" {
+  type = string
   description = "Reguired unless a snapshot_identifier or replicate_source_db is provided. Note that this may show up in logs, and it will be stored in the state file."
   default     = "nopassword"
 }
