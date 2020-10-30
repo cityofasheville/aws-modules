@@ -1,8 +1,8 @@
-resource "aws_db_subnet_group" "mod" {
+resource "aws_db_subnet_group" "subnet_group" {
   count       = var.create_db_subnet_group ? 1 : 0
   description = var.description
   name        = var.subnet_group_name
-  subnet_ids  = var.subnets
+  subnet_ids  = flatten([var.subnets])
   tags        = var.tags
 
   lifecycle {

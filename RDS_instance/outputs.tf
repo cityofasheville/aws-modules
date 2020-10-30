@@ -1,10 +1,10 @@
 output "endpoint" {
-  value = aws_db_instance.mod.endpoint
+  value = aws_db_instance.rds_instance.endpoint
   //address:port format
 }
 
 output "address" {
-  value = aws_db_instance.mod.address
+  value = aws_db_instance.rds_instance.address
 }
 
 output "family" {
@@ -12,11 +12,11 @@ output "family" {
 }
 
 output "master_username" {
-  value = aws_db_instance.mod.username
+  value = aws_db_instance.rds_instance.username
 }
 
 output "db_name" {
-  value = aws_db_instance.mod.name
+  value = aws_db_instance.rds_instance.name
 }
 
 output "name" {
@@ -28,10 +28,12 @@ output "port" {
 }
 
 output "rds_id" {
-  value = aws_db_instance.mod.id
+  value = aws_db_instance.rds_instance.id
 }
 
-output "sg_on_rds_instance_id" {
-  value = aws_security_group.sg_on_rds_instance.id
+output "identifier" {
+  value = var.identifier
 }
-
+output "secret_arn" {
+  value = module.Secrets.arn
+}

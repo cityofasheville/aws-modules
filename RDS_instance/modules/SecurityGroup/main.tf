@@ -1,15 +1,26 @@
 resource "aws_security_group" "sg_on_rds_instance" {
-  description = var.security_group_name
-  name        = var.security_group_name
+  description = var.description
+  name        = var.name
   vpc_id      = var.vpc_id
 
-  ingress = var.ingress
+  ingress {
+    cidr_blocks     = var.cidr_blocks
+    from_port       = var.port
+    protocol        = "tcp"
+    security_groups = var.security_groups
+    to_port         = var.port
+  }
 
-  egress = var.egress
+  egress {
+    cidr_blocks = ["0.0.0.0/0"]
+    from_port   = 0
+    protocol    = "-1"
+    to_port     = 0
+  }
 
   tags = merge(
   {
-    "Name" = var.security_group_name
+    "Name" = var.name
   },
   var.tags,
   )
