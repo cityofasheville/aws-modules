@@ -28,48 +28,20 @@ variable "tags" {
   default = {}
 }
 
-// password creation variables
-variable "length" {
-  default = null
-}
 
-variable "include_lower" {
-  default = null
-}
 
-variable "include_number" {
-  default = null
-}
-
-variable "minimum_lower" {
-  default = null
-}
-
-variable "minimum_numeric" {
-  default = null
-}
-
-variable "minimum_special" {
-  default = null
-}
-
-variable "minimum_upper" {
-  default = null
-}
-
-variable "override_special" {
+variable "dbusername" {
+  type = string
   default = ""
 }
 
-variable "include_special" {
+variable "dbpassword" {}
+variable "endpoint" {
   default = null
 }
-
-variable "include_upper" {
+variable "port" {
   default = null
 }
-
-variable "pass_version" {
-  default = 1
+variable "family" {
+  default = null
 }
-

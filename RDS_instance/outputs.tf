@@ -11,6 +11,7 @@ output "family" {
   value = local.family
 }
 
+
 output "master_username" {
   value = aws_db_instance.rds_instance.username
 }
@@ -34,6 +35,11 @@ output "rds_id" {
 output "identifier" {
   value = var.identifier
 }
-output "secret_arn" {
-  value = module.Secrets.arn
+
+output "dbpass" {
+  value = base64encode(random_password.random_string.result)
+}
+
+output "securitygroupid" {
+  value = module.Security_Group.id
 }

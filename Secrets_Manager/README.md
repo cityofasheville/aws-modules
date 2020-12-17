@@ -4,7 +4,7 @@
 ================================================
 
 ## What is in this module?
-This is a base module for deploying an RDS Instance.
+This is a base module for deploying a secret in AWS Secrets Manager.
 
 ## How do you use this module?
 
@@ -16,5 +16,5 @@ Be sure to specify a tag on production systems or updates to this repository may
 
 There is still functionality to add.
 
-* It will not destroy correctly due to the way the security groups are created and attached. This is a shared problem with Terraform. Until a solution is found, the Instance many need to be deleted manually, then the destroy plans run to remove the remaining resources.
+* This module is set up right not to store RDS credentials. It needs to be modified to accept/store more generic values before being used for other secrets.
 * Some resource identifiers are hard coded, specifically in the modules, Roles and Subnets. 

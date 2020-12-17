@@ -156,7 +156,7 @@ variable "parameter_group_name" {
   default = null
 }
 
-variable "password" {
+variable "dbpass" {
   type = string
   description = "Reguired unless a snapshot_identifier or replicate_source_db is provided. Note that this may show up in logs, and it will be stored in the state file."
   default     = "nopassword"
@@ -206,7 +206,7 @@ variable "timezone" {
   default     = null
 }
 
-variable "username" {
+variable "dbuser" {
   description = "Reguired unless a snapshot_identifier or replicate_source_db is provided. Username for master DB user."
   default     = null
 }
@@ -275,36 +275,3 @@ variable "role_name" {
   default = null
 }
 
-//secret module variables
-
-variable "create_secret" {
-  default = null
-}
-
-variable "secret_name" {
-  default = null
-}
-
-variable "secret_description" {
-  default = null
-}
-
-variable "secret_length" {
-  default = null
-}
-
-variable "inc_lower" {
-  default = null
-}
-
-variable "inc_number" {
-  default = null
-}
-
-variable "inc_special" {
-  default = null
-}
-
-variable "inc_upper" {
-  default = null
-}

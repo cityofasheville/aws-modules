@@ -1,7 +1,22 @@
-## About this Module
+# City of Asheville Infrastructure
 
-The RDS Proxy is still new to AWS and as such the documentation is still catching up to it. There are a few unknowns that make it hard to build a fully independent module.
+**NOTE: THIS MODULE IS STILL VERY EXPERIMENTAL**
+================================================
 
-In addition, the Terraform integration is still incomplete.
+## What is in this module?
+This is a base module for deploying an RDS DB Proxy for an RDS instance.
 
-Of note: there is nto completel documentation on what the service role needs to be. The role ARN is hard coded here and besed on one that was created in the custom-dev account through the CLI. 
+## How do you use this module?
+
+Import this module into your Terraform or Terragrunt plan.
+
+Be sure to specify a tag on production systems or updates to this repository may cause unexpected consequences.
+
+## Known Issues / Work in Progress
+
+There is still functionality to add.
+
+* It will not destroy correctly due to the way the security groups are created and attached. This is a shared problem with Terraform. Until a solution is found, the Instance many need to be deleted manually, then the destroy plans run to remove the remaining resources.
+* Deployed 
+* Some resource identifiers are hard coded, specifically in the modules, Roles and Subnets. 
+

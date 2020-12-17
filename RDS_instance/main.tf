@@ -33,21 +33,22 @@ module "Role" {
   tags = var.tags
 }
 
-module "Secrets" {
-  source = "git@github.com:cityofasheville/aws-modules.git//Secrets_Manager"
-  //source = "../../../aws-modules/Secrets_Manager"
+resource "random_password" "random_string" {
 
-  create_secret = var.create_secret
-  name = var.secret_name
-  description = var.secret_description
-  length = var.secret_length
-  include_lower = var.inc_lower
-  include_number = var.inc_number
-  include_special = var.inc_special
-  include_upper = var.inc_upper
+  length           = var.length
+  lower            = var.include_lower
+  number           = var.include_number
+  min_lower        = var.minimum_lower
+  min_numeric      = var.minimum_numeric
+  min_special      = var.minimum_special
+  min_upper        = var.minimum_upper
+  override_special = var.override_special == "" ? null : var.override_special
+  special          = var.include_special
+  upper            = var.include_upper
 
-  tags = var.tags
-
+  keepers = {
+    pass_version = var.pass_version
+  }
 }
 
 resource "aws_db_instance" "rds_instance" {
@@ -85,7 +86,7 @@ resource "aws_db_instance" "rds_instance" {
   name                  = var.name
   option_group_name     = var.option_group_name
   parameter_group_name  = var.parameter_group_name
-  password              = "${module.Secrets.secret_string[0]}"
+  password              = random_password.random_string.result
   publicly_accessible   = var.publicly_accessible
   replicate_source_db   = var.replicate_source_db
   // security_group_names   = []
@@ -95,7 +96,7 @@ resource "aws_db_instance" "rds_instance" {
   storage_type           = var.storage_type
   tags                   = var.tags
   timezone               = var.timezone
-  username               = var.username
+  username               = var.dbuser
   vpc_security_group_ids = [module.Security_Group.id]
   //s3_import = var.s3_import
   performance_insights_enabled          = var.performance_insights_enabled
