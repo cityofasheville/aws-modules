@@ -79,3 +79,8 @@ variable "rds_instance" {
 variable "kms_key_id" {
   default = null
 }
+
+variable "role_name" {
+  type = string
+  default = "rds_proxy_execution"
+}
